@@ -1,1 +1,20 @@
-<p>product-item works!</p>
+<div class="list-group-item clearfix">
+  <div class="col-xs-3">
+    <img
+      [src]="product.imagePath"
+      alt="Product image"
+      class="img-responsive"
+      style="max-height: 60px;"
+    >
+  </div>
+  <div class="col-xs-4">
+    <h4 class="list-group-item-heading">{{product.title}}</h4>
+    <h3>{{product.price}}</h3>
+  </div>
+  <div class="col-xs-5">
+    <p class="list-group-item-text">{{product.description}}</p>
+
+  </div>
+
+</div>
+

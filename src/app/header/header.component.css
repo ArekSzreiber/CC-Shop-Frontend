@@ -1,3 +1,5 @@
-div {
-  background-color: gray;
+nav, li, a {
+  /*I know it is not good practice, !important is only temporary*/
+  background-color: #131b19 !important;
+  color: white !important;
 }
