@@ -12,12 +12,15 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ProductItemComponent} from './products/product-list/product-item/product-item.component';
 import {RouterModule, Routes} from "@angular/router";
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
+import {ProductEditComponent} from './products/product-edit/product-edit.component';
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'products', component: ProductsComponent},
+  {path: 'products/new', component: ProductEditComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'suppliers', component: SuppliersComponent},
 ];
@@ -35,9 +38,11 @@ const appRoutes: Routes = [
     NavbarComponent,
     ProductItemComponent,
     HomeComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
