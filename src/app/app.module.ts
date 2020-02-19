@@ -13,6 +13,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from './home/home.component';
 import {ProductEditComponent} from './products/product-edit/product-edit.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
