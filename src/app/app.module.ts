@@ -4,8 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ProductsComponent} from './products/products.component';
-import {SuppliersComponent} from './suppliers/suppliers.component';
-import {CategoriesComponent} from './categories/categories.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductDetailComponent} from './products/product-detail/product-detail.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
@@ -18,11 +16,9 @@ import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'categories', component: CategoriesComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/new', component: ProductEditComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
-  {path: 'suppliers', component: SuppliersComponent},
 ];
 
 @NgModule({
@@ -30,8 +26,6 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     ProductsComponent,
-    SuppliersComponent,
-    CategoriesComponent,
     ProductListComponent,
     ProductDetailComponent,
     ShoppingCartComponent,

@@ -10,7 +10,9 @@ import {Product} from "../../shared/product.model";
 export class ProductEditComponent implements OnInit {
   @ViewChild('productForm', {static: false}) productForm: NgForm;
 
-  constructor() {
+
+  constructor(
+  ) {
   }
 
   ngOnInit() {

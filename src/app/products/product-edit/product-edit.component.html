@@ -19,7 +19,37 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-2">
+            <div class="col-xs-3">
+<!--              <label for="category">Category</label>-->
+<!--              <select id="category"-->
+<!--                      name="category"-->
+<!--                      class="form-control"-->
+<!--                      ngModel-->
+<!--              >-->
+<!--                <option selected-->
+<!--                        disabled-->
+<!--                        hidden-->
+<!--                        [value]="null"-->
+<!--                >Please select</option>-->
+<!--                <option *ngFor="let category of categories;"-->
+<!--                        [value]="category.id">{{category.name}}</option>-->
+<!--              </select>-->
+
+<!--              <label for="supplier">Supplier</label>-->
+<!--              <select id="supplier"-->
+<!--                      name="supplier"-->
+<!--                      class="form-control"-->
+<!--                      ngModel-->
+<!--              >-->
+<!--                <option selected-->
+<!--                        disabled-->
+<!--                        hidden-->
+<!--                        [value]="null"-->
+<!--                >Please select</option>-->
+<!--                <option *ngFor="let supplier of suppliers;"-->
+<!--                        [value]="supplier.id">{{supplier.name}}</option>-->
+<!--              </select>-->
+
               <label for="amount">Amount</label>
               <input type="number"
                      id="amount"
@@ -39,13 +69,13 @@
                      pattern="^[1-9]+[0-9]*$"
               >
             </div>
-            <div class="col-xs-10">
+            <div class="col-xs-9">
               <label for="description">Description</label>
               <textarea type="text"
                         id="description"
                         class="form-control"
                         name="description"
-                        rows="5"
+                        rows="7"
                         ngModel
                         required
               ></textarea>
@@ -70,26 +100,26 @@
               <img [src]="imagePath.value"
                    class="img-responsive"
                    style="max-height: 300px;"
-                    alt="[Preview of product image]"
+                   alt="[Preview of product image]"
               >
             </div>
           </div>
-                    <div class="row">
-                      <div class="col-xs-12">
-                        <button class="btn btn-success" type="submit" [disabled]="productForm.invalid">
-<!--                          {{ editMode ? 'Update' : 'Add'}}-->
-                          Add
-                        </button>
-<!--                        <button-->
-<!--                          class="btn btn-danger"-->
-<!--                          type="button"-->
-<!--                          (click)="onDelete()"-->
-<!--                          [disabled]="!editMode"-->
-<!--                        >Delete-->
-<!--                        </button>-->
-<!--                        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>-->
-                      </div>
-                    </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-success" type="submit" [disabled]="productForm.invalid">
+                <!--                          {{ editMode ? 'Update' : 'Add'}}-->
+                Add
+              </button>
+              <!--                        <button-->
+              <!--                          class="btn btn-danger"-->
+              <!--                          type="button"-->
+              <!--                          (click)="onDelete()"-->
+              <!--                          [disabled]="!editMode"-->
+              <!--                        >Delete-->
+              <!--                        </button>-->
+              <!--                        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>-->
+            </div>
+          </div>
         </form>
       </div>
     </div>
