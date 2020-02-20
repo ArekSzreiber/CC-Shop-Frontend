@@ -29,8 +29,8 @@ export class ProductEditComponent implements OnInit {
       value.title,
       value.description,
       value.imagePath,
+      value.price,
       value.amount,
-      value.price
     );
     this.productsService.addProduct(product);
     this.onCancel();
