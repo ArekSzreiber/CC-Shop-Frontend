@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from "../../shared/product.model";
 import {ProductsService} from "../products.service";
 import {Subscription} from "rxjs";
+import {DataStorageService} from "../../shared/data-storage.service";
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +15,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productsService: ProductsService,
+    private dataStorageService: DataStorageService,
   ) {
   }
 
@@ -23,7 +25,8 @@ export class ProductListComponent implements OnInit {
       (products: Product[])=>{
         this.productList = products;
       }
-    )
+    );
+    this.dataStorageService.fetchRecipes();
   }
 
 }
