@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  productList: Product[] = [];
+  productList: Product[];
   subscription: Subscription;
 
   constructor(
@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.productList = this.productsService.getProducts();
+    this.productList = this.productsService.getProducts();
     this.subscription = this.productsService.productsChanged.subscribe(
       (products: Product[])=>{
         this.productList = products;

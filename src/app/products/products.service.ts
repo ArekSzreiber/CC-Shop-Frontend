@@ -55,4 +55,9 @@ export class ProductsService {
     this.products = products;
     this.productsChanged.next(this.products.slice());
   }
+
+  addProduct(product: Product) {
+    this.products.push(product);
+    this.productsChanged.next(this.products.slice());
+  }
 }
