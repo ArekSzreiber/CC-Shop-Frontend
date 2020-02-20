@@ -4,6 +4,8 @@ import {Product} from "../../shared/product.model";
 export const ADD_PRODUCT = '[Shopping Cart] Add Ingredient';
 
 export class AddProduct implements Action {
-  readonly type: string;
-  payload: Product;
+  readonly type: string = ADD_PRODUCT;
+
+  constructor(public payload: Product) {
+  }
 }

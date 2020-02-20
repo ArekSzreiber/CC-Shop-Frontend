@@ -11,7 +11,7 @@
     <h4 class="list-group-item-heading">{{product.title}}</h4>
     <div class="btn-group" role="group" aria-label="Basic example">
       <div class="btn btn-primary" style="cursor: default">{{product.price}} zł</div>
-      <button type="button" class="btn btn-warning">Add to cart</button>
+      <button type="button" class="btn btn-warning" (click)="addToShoppingCart()">Add to cart</button>
     </div>
   </div>
   <div class="col-xs-5">
