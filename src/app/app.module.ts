@@ -14,6 +14,8 @@ import {HomeComponent} from './home/home.component';
 import {ProductEditComponent} from './products/product-edit/product-edit.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from '@ngrx/store';
+import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,6 +42,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    StoreModule.forRoot({shoppingCart: shoppingCartReducer}),
   ],
   providers: [],
   bootstrap: [AppComponent]
