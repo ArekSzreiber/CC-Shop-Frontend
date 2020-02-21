@@ -33,7 +33,7 @@ export class DataStorageService {
   }
 
   fetchProducts() {
-    const url = DataStorageService.composeFirebaseUrl('products');
+    const url = 'http://localhost:8888/categories/1/products';
     this.http
       .get<Product[]>(url).subscribe(response => {
       console.log(response);
