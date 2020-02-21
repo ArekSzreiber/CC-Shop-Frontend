@@ -16,9 +16,11 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from '@ngrx/store';
 import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
+import { CategoriesComponent } from './categories/categories.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'categories/:id/products', component: ProductListComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/new', component: ProductEditComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     ProductItemComponent,
     HomeComponent,
     ProductEditComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,

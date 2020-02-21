@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {ProductsService} from "../products/products.service";
 import {Product} from "./product.model";
+import {CategoriesService} from "../categories/categories.service";
+import {Category} from "./category.model";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -10,6 +12,7 @@ export class DataStorageService {
   constructor(
     private http: HttpClient,
     private productsService: ProductsService,
+    private categoryService: CategoriesService,
   ) {
   }
 
@@ -29,12 +32,21 @@ export class DataStorageService {
       });
   }
 
-  fetchRecipes() {
+  fetchProducts() {
     const url = DataStorageService.composeFirebaseUrl('products');
     this.http
       .get<Product[]>(url).subscribe(response => {
       console.log(response);
       this.productsService.setProducts(response);
+    })
+  }
+
+  fetchCategories() {
+    const url = 'http://localhost:8888/categories';
+    this.http
+      .get<Category[]>(url).subscribe(response => {
+      this.categoryService.setCategories(response);
+      console.log(this.categoryService.getCategories());
     })
   }
 }

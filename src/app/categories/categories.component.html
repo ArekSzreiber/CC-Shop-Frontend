@@ -1,0 +1,5 @@
+<ul class="nav flex-column">
+  <li class="nav-item" *ngFor="let category of categories;">
+    <a class="nav-link" routerLink="/categories/{{category.id}}/products">{{category.name}}</a>
+  </li>
+</ul>

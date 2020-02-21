@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
         this.productList = products;
       }
     );
-    this.dataStorageService.fetchRecipes();
+    this.dataStorageService.fetchProducts();
   }
 
 }
