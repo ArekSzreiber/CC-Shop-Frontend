@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+ul {
+  background-color: #131b19;
+  font-weight: bold;
+}
