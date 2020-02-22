@@ -20,6 +20,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onFetchData() {
-    this.dataStorageService.fetchProducts(undefined);
+    this.dataStorageService.fetchAllProducts();
   }
 }

@@ -28,7 +28,11 @@ export class ProductListComponent implements OnInit {
         this.productList = products;
       }
     );
-    this.dataStorageService.fetchProducts(+this.route.snapshot.params.id);
+    if(+this.route.snapshot.params.id){
+      this.dataStorageService.fetchProductsByCategoryId(+this.route.snapshot.params.id);
+    }else{
+      this.dataStorageService.fetchAllProducts();
+    }
   }
 
 }

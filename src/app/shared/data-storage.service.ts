@@ -33,13 +33,16 @@ export class DataStorageService {
       });
   }
 
-  fetchProducts(categoryId: number) {
-    let url: string;
-    if(categoryId === undefined){
-      url = 'http://localhost:8888/products';
-    }else{
-      url = `http://localhost:8888/categories/${categoryId}/products`;
-    }
+  fetchProductsByCategoryId(categoryId: number) {
+    const url = `http://localhost:8888/categories/${categoryId}/products`;
+    this.http
+      .get<Product[]>(url).subscribe(response => {
+      this.productsService.setProducts(response);
+    })
+  }
+
+  fetchAllProducts(){
+    const url = 'http://localhost:8888/products';
     this.http
       .get<Product[]>(url).subscribe(response => {
       this.productsService.setProducts(response);

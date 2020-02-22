@@ -30,6 +30,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   onLoadProducts(categoryId: number) {
-    this.dataStorageService.fetchProducts(categoryId);
+    this.dataStorageService.fetchProductsByCategoryId(categoryId);
   }
 }
