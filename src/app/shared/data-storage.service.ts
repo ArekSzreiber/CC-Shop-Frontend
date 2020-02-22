@@ -32,8 +32,13 @@ export class DataStorageService {
       });
   }
 
-  fetchProducts() {
-    const url = 'http://localhost:8888/categories/1/products';
+  fetchProducts(categoryId: number) {
+    let url: string;
+    if(categoryId === undefined){
+      url = 'http://localhost:8888/products';
+    }else{
+      url = `http://localhost:8888/categories/${categoryId}/products`;
+    }
     this.http
       .get<Product[]>(url).subscribe(response => {
       console.log(response);

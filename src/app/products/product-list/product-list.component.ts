@@ -3,6 +3,7 @@ import {Product} from "../../shared/product.model";
 import {ProductsService} from "../products.service";
 import {Subscription} from "rxjs";
 import {DataStorageService} from "../../shared/data-storage.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -16,6 +17,7 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private dataStorageService: DataStorageService,
+    private route: ActivatedRoute,
   ) {
   }
 
@@ -26,7 +28,7 @@ export class ProductListComponent implements OnInit {
         this.productList = products;
       }
     );
-    this.dataStorageService.fetchProducts();
+    this.dataStorageService.fetchProducts(+this.route.snapshot.params.id);
   }
 
 }

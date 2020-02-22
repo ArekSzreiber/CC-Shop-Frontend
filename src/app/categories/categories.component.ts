@@ -29,4 +29,7 @@ export class CategoriesComponent implements OnInit {
     this.dataStorageService.fetchCategories();
   }
 
+  onLoadProducts(categoryId: number) {
+    this.dataStorageService.fetchProducts(categoryId);
+  }
 }
