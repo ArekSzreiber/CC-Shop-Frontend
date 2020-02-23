@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../../shared/product.model";
 import * as ShoppingCartActions from "../../../shopping-cart/store/shopping-cart.actions";
 import {Store} from "@ngrx/store";
+import {LineItem} from "../../../shared/line-item.model";
 
 @Component({
   selector: 'app-product-item',
@@ -17,6 +18,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit() {
   }
   addToShoppingCart() {
-    this.store.dispatch(new ShoppingCartActions.AddProduct(this.product));
+    const lineItem = new LineItem(this.product);
+    this.store.dispatch(new ShoppingCartActions.AddProduct(lineItem));
   }
 }
