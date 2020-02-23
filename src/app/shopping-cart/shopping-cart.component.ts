@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../shared/product.model";
-import {ProductsService} from "../products/products.service";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
+import {LineItem} from "../shared/line-item.model";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,17 +10,15 @@ import {Observable} from "rxjs";
 })
 export class ShoppingCartComponent implements OnInit {
 
-  products: Observable<{products: Product[]}>;
+  lineItems: Observable<{lineItems: LineItem[]}>;
 
   constructor(
-    private productsService: ProductsService,
-    private store: Store<{ shoppingCart: { products: Product[] } }>,
+    private store: Store<{ shoppingCart: { lineItems: LineItem[] } }>,
   ) {
   }
 
   ngOnInit() {
-    this.products = this.store.select('shoppingCart');
-    // this.products = this.productsService.sampleProducts;
+    this.lineItems = this.store.select('shoppingCart');
   }
 
 }
