@@ -15,45 +15,38 @@
       </div>
       <div class="row">
         <div class="col-xs-3">
-          <!--              <label for="category">Category</label>-->
-          <!--              <select id="category"-->
-          <!--                      name="category"-->
-          <!--                      class="form-control"-->
-          <!--                      ngModel-->
-          <!--              >-->
-          <!--                <option selected-->
-          <!--                        disabled-->
-          <!--                        hidden-->
-          <!--                        [value]="null"-->
-          <!--                >Please select</option>-->
-          <!--                <option *ngFor="let category of categories;"-->
-          <!--                        [value]="category.id">{{category.name}}</option>-->
-          <!--              </select>-->
-
-          <!--              <label for="supplier">Supplier</label>-->
-          <!--              <select id="supplier"-->
-          <!--                      name="supplier"-->
-          <!--                      class="form-control"-->
-          <!--                      ngModel-->
-          <!--              >-->
-          <!--                <option selected-->
-          <!--                        disabled-->
-          <!--                        hidden-->
-          <!--                        [value]="null"-->
-          <!--                >Please select</option>-->
-          <!--                <option *ngFor="let supplier of suppliers;"-->
-          <!--                        [value]="supplier.id">{{supplier.name}}</option>-->
-          <!--              </select>-->
-
-          <label for="amount">Amount</label>
-          <input type="number"
-                 id="amount"
-                 class="form-control"
-                 name="amount"
-                 ngModel
-                 required
-                 pattern="^[1-9]+[0-9]*$"
+          <label for="category">Category</label>
+          <select id="category"
+                  name="category"
+                  class="form-control"
+                  ngModel
           >
+            <option selected
+                    disabled
+                    hidden
+                    [value]="null"
+            >Please select
+            </option>
+            <option *ngFor="let category of categories;"
+                    [value]="category.id">{{category.name}}</option>
+          </select>
+
+          <label for="supplier">Supplier</label>
+          <select id="supplier"
+                  name="supplier"
+                  class="form-control"
+                  ngModel
+          >
+            <option selected
+                    disabled
+                    hidden
+                    [value]="null"
+            >Please select
+            </option>
+            <option *ngFor="let supplier of suppliers;"
+                    [value]="supplier.id">{{supplier.name}}</option>
+          </select>
+
           <label for="price">Price</label>
           <input type="number"
                  id="price"
@@ -101,18 +94,20 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" [disabled]="productForm.invalid">
-            <!--                          {{ editMode ? 'Update' : 'Add'}}-->
+          <button class="btn btn-success"
+                  type="submit"
+                  [disabled]="productForm.invalid"
+          >
             Add
           </button>
-          <!--                        <button-->
-          <!--                          class="btn btn-danger"-->
-          <!--                          type="button"-->
-          <!--                          (click)="onDelete()"-->
-          <!--                          [disabled]="!editMode"-->
-          <!--                        >Delete-->
-          <!--                        </button>-->
-          <!--                        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>-->
+          <button class="btn btn-warning"
+                  type="button"
+                  (click)="onCancel()"
+                  style="float: right;"
+          >
+            Cancel
+          </button>
+          <div style="clear: both;"></div>
         </div>
       </div>
     </form>

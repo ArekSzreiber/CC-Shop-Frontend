@@ -10,7 +10,7 @@ import {CategoriesService} from "./categories.service";
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  categories: Category[] = [];
+  categories: Category[];
   subscription: Subscription;
 
   constructor(
