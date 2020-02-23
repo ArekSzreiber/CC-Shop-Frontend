@@ -4,6 +4,8 @@ import {ProductsService} from "../products/products.service";
 import {Product} from "./product.model";
 import {CategoriesService} from "../categories/categories.service";
 import {Category} from "./category.model";
+import {Supplier} from "./supplier.model";
+import {SuppliersService} from "../suppliers/suppliers.service";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -13,6 +15,7 @@ export class DataStorageService {
     private http: HttpClient,
     private productsService: ProductsService,
     private categoryService: CategoriesService,
+    private suppliersService: SuppliersService,
   ) {
   }
 
@@ -54,6 +57,22 @@ export class DataStorageService {
     this.http
       .get<Category[]>(url).subscribe(response => {
       this.categoryService.setCategories(response);
+    })
+  }
+
+  fetchProductsBySupplierId(supplierId: number) {
+    const url = `http://localhost:8888/suppliers/${supplierId}/products`;
+    this.http
+      .get<Product[]>(url).subscribe(response => {
+      this.productsService.setProducts(response);
+    })
+  }
+
+  fetchSuppliers() {
+    const url = 'http://localhost:8888/suppliers';
+    this.http
+      .get<Supplier[]>(url).subscribe(response => {
+      this.suppliersService.setSuppliers(response);
     })
   }
 }

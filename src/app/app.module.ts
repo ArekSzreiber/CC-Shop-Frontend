@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from '@ngrx/store';
 import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
 import { CategoriesComponent } from './categories/categories.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     HomeComponent,
     ProductEditComponent,
     CategoriesComponent,
+    SuppliersComponent,
   ],
   imports: [
     BrowserModule,
