@@ -11,19 +11,17 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ProductItemComponent} from './products/product-list/product-item/product-item.component';
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from './home/home.component';
-import {ProductEditComponent} from './products/product-edit/product-edit.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from '@ngrx/store';
 import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
-import { CategoriesComponent } from './categories/categories.component';
-import { SuppliersComponent } from './suppliers/suppliers.component';
+import {CategoriesComponent} from './categories/categories.component';
+import {SuppliersComponent} from './suppliers/suppliers.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'categories/:id/products', component: ProductListComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'products/new', component: ProductEditComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
 ];
 
@@ -38,7 +36,6 @@ const appRoutes: Routes = [
     NavbarComponent,
     ProductItemComponent,
     HomeComponent,
-    ProductEditComponent,
     CategoriesComponent,
     SuppliersComponent,
   ],

@@ -1,9 +1,0 @@
-img:before {
-  content: " ";
-  display: block;
-
-  height: 300px;
-  border: 2px dotted rgb(200, 200, 200);
-  border-radius: 5px;
-}
-
