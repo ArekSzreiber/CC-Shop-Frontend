@@ -21,4 +21,7 @@ export class ShoppingCartComponent implements OnInit {
     this.lineItems = this.store.select('shoppingCart');
   }
 
+  incrementQuantity(lineItem: LineItem) {
+    lineItem.quantity++;
+  }
 }

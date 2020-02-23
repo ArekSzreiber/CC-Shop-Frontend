@@ -1,7 +1,45 @@
 import * as ShoppingCartActions from './shopping-cart.actions';
+import {LineItem} from "../../shared/line-item.model";
+import {Product} from "../../shared/product.model";
 
 const initialState = {
-  lineItems: [],
+  lineItems: [
+    new LineItem(
+      new Product(
+        "Test Title 99",
+        "Test description",
+        "http://studio408.pl/authors/skot/018.jpg",
+        99
+      ),
+      3
+    ),
+    new LineItem(
+      new Product(
+        "Test Title 22",
+        "Test description 2",
+        "http://studio408.pl/authors/skot/018.jpg",
+        22
+      ),
+      2
+    ),
+    new LineItem(
+      new Product(
+        "Test Title 7",
+        "Test description 3",
+        "http://studio408.pl/authors/skot/018.jpg",
+        7
+      ),
+      1
+    ),
+    new LineItem(
+      new Product(
+        "Test Title 4",
+        "Test description 4",
+        "http://studio408.pl/authors/skot/018.jpg",
+        4
+      ),
+    ),
+  ],
 };
 
 export function shoppingCartReducer(
