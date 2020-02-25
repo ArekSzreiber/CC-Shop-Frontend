@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {LineItem} from "../shared/line-item.model";
 
 import * as fromShoppingCart from './store/shopping-cart.reducer';
+import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,7 +13,7 @@ import * as fromShoppingCart from './store/shopping-cart.reducer';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  lineItems: Observable<{lineItems: LineItem[]}>;
+  lineItems: Observable<{ lineItems: LineItem[] }>;
 
   constructor(
     private store: Store<fromShoppingCart.AppState>,
@@ -25,5 +26,6 @@ export class ShoppingCartComponent implements OnInit {
 
   incrementQuantity(lineItem: LineItem) {
     lineItem.quantity++;
+    this.store.dispatch(new ShoppingCartActions.UpdateLineItem(lineItem));
   }
 }

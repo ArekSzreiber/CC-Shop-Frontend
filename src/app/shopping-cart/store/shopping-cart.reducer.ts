@@ -7,6 +7,16 @@ if (!sessionLineItems) {
   sessionLineItems = [];
 }
 
+function getTotalQuantity(lineItems: LineItem[]) {
+  let quantities = lineItems.map((lineItem) => {
+    return lineItem.quantity;
+  });
+  return quantities.reduce((sum, current) => {
+    return sum + current;
+  }, 0);
+}
+
+
 const sampleLineItems = [ // left for testing
   new LineItem(
     new Product(
@@ -52,36 +62,56 @@ export interface AppState {
 
 export interface ShoppingCartState {
   lineItems: LineItem[];
+  numberOfItems: number;
 }
 
 const initialState: ShoppingCartState = {
   lineItems: sessionLineItems,
+  numberOfItems: getTotalQuantity(sessionLineItems),
 };
 
 export function shoppingCartReducer(
   state: ShoppingCartState = initialState,
-  action: ShoppingCartActions.AddProduct
+  action: ShoppingCartActions.ShoppingCartActions
 ) {
+  let updatedLineItems;
+
   switch (action.type) {
     case ShoppingCartActions.ADD_PRODUCT:
-      console.log(state);
-      const updatedLineItems = [...state.lineItems];
+      updatedLineItems = [...state.lineItems];
       const updatedLineItem = action.payload;
-      updatedLineItems.forEach((lineItem, index) => {
+      updatedLineItems.some((lineItem, index) => {
         if (JSON.stringify(lineItem.product) == JSON.stringify(action.payload.product)) {
           updatedLineItem.quantity += lineItem.quantity;
-          updatedLineItems.splice(index, 1);
-          //todo break forEach function here https://stackoverflow.com/questions/2641347/short-circuit-array-foreach-like-calling-break
+          updatedLineItems.splice(index, 1, updatedLineItem);
+          return true; // to break iterating over updatedLineItems
         }
       });
-
-      updatedLineItems.push(updatedLineItem);
       sessionStorage.setItem("lineItems", JSON.stringify(updatedLineItems));
       return {
         ...state,
         lineItems: [
           ...updatedLineItems,
-        ]
+        ],
+        numberOfItems: getTotalQuantity(updatedLineItems),
+      };
+
+    case ShoppingCartActions.UPDATE_LINE_ITEM:
+      updatedLineItems = [...state.lineItems];
+      updatedLineItems.some((lineItem, index) => {
+        if (JSON.stringify(lineItem.product) == JSON.stringify(action.payload.product)) {
+          updatedLineItems.splice(index, 1, action.payload);
+          return true; // to break iterating over updatedLineItems
+        }
+      });
+
+      sessionStorage.setItem("lineItems", JSON.stringify(updatedLineItems));
+      return {
+        ...state,
+        lineItems: [
+          ...updatedLineItems,
+        ],
+        numberOfItems: getTotalQuantity(updatedLineItems),
       };
 
     default:
