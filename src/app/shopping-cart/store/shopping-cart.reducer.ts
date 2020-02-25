@@ -16,6 +16,16 @@ function getTotalQuantity(lineItems: LineItem[]) {
   }, 0);
 }
 
+function getTotalPrice(lineItems: LineItem[]) {
+  let prices = lineItems.map((lineItem) => {
+    return lineItem.product.price * lineItem.quantity;
+  });
+  return prices.reduce((sum, current) => {
+    return sum + current;
+  }, 0);
+}
+
+
 
 const sampleLineItems = [ // left for testing
   new LineItem(
@@ -63,11 +73,13 @@ export interface AppState {
 export interface ShoppingCartState {
   lineItems: LineItem[];
   numberOfItems: number;
+  totalPrice: number;
 }
 
 const initialState: ShoppingCartState = {
   lineItems: sessionLineItems,
   numberOfItems: getTotalQuantity(sessionLineItems),
+  totalPrice: getTotalPrice(sessionLineItems),
 };
 
 export function shoppingCartReducer(
@@ -95,6 +107,7 @@ export function shoppingCartReducer(
           ...updatedLineItems,
         ],
         numberOfItems: getTotalQuantity(updatedLineItems),
+        totalPrice: getTotalPrice(updatedLineItems),
       };
 
     case ShoppingCartActions.UPDATE_LINE_ITEM:
@@ -113,6 +126,7 @@ export function shoppingCartReducer(
           ...updatedLineItems,
         ],
         numberOfItems: getTotalQuantity(updatedLineItems),
+        totalPrice: getTotalPrice(updatedLineItems),
       };
 
     default:

@@ -19,12 +19,12 @@
             </div>
             <div class="col-md-3 price-box">
               <span class="text-center">
-                {{+lineItem.product.price}}zł
+                {{+lineItem.product.price}} zł
               </span>
             </div>
             <div class="col-md-3 price-box">
               <span class="text-center">
-                {{lineItem.product.price * lineItem.quantity}}zł
+                {{lineItem.product.price * lineItem.quantity}} zł
               </span>
             </div>
           </div>
@@ -36,6 +36,19 @@
                  value="{{lineItem.quantity}}"
                  [(ngModel)]="lineItem.quantity">
           <span class="minus-span disable-select">-</span></div>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center clearfix">
+      <div class="row">
+
+        <div class="col-md-9 price-box">
+          <div class="col-md-9 text-right">
+            Total price:
+          </div>
+          <div class="col-md-3">
+            {{totalPrice}} zł
+          </div>
+        </div>
       </div>
     </li>
   </ul>
