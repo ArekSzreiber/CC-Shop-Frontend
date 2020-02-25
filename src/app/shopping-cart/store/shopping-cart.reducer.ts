@@ -74,7 +74,7 @@ export function shoppingCartReducer(
   state: ShoppingCartState = initialState,
   action: ShoppingCartActions.ShoppingCartActions
 ) {
-  let updatedLineItems;
+  let updatedLineItems: LineItem[];
 
   switch (action.type) {
     case ShoppingCartActions.ADD_PRODUCT:
@@ -83,10 +83,11 @@ export function shoppingCartReducer(
       updatedLineItems.some((lineItem, index) => {
         if (JSON.stringify(lineItem.product) == JSON.stringify(action.payload.product)) {
           updatedLineItem.quantity += lineItem.quantity;
-          updatedLineItems.splice(index, 1, updatedLineItem);
+          updatedLineItems.splice(index, 1);
           return true; // to break iterating over updatedLineItems
         }
       });
+      updatedLineItems.push(updatedLineItem);
       sessionStorage.setItem("lineItems", JSON.stringify(updatedLineItems));
       return {
         ...state,
