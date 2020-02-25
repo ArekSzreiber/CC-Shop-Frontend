@@ -23,7 +23,7 @@
 }
 
 a:hover{
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .disable-select {
@@ -32,4 +32,9 @@ a:hover{
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.price-box{
+  font-size: 20px;
+  vertical-align: bottom;
 }
