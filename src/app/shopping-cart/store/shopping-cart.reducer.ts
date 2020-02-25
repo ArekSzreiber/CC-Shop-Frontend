@@ -3,7 +3,7 @@ import {LineItem} from "../../shared/line-item.model";
 import {Product} from "../../shared/product.model";
 
 let sessionLineItems: LineItem[] = JSON.parse(sessionStorage.getItem("lineItems"));
-if(!sessionLineItems){
+if (!sessionLineItems) {
   sessionLineItems = [];
 }
 
@@ -45,12 +45,21 @@ const sampleLineItems = [ // left for testing
   ),
 ];
 
-const initialState = {
+export interface AppState {
+  shoppingCart: ShoppingCartState;
+
+}
+
+export interface ShoppingCartState {
+  lineItems: LineItem[];
+}
+
+const initialState: ShoppingCartState = {
   lineItems: sessionLineItems,
 };
 
 export function shoppingCartReducer(
-  state = initialState,
+  state: ShoppingCartState = initialState,
   action: ShoppingCartActions.AddProduct
 ) {
   switch (action.type) {

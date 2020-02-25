@@ -3,6 +3,8 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {LineItem} from "../shared/line-item.model";
 
+import * as fromShoppingCart from './store/shopping-cart.reducer';
+
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -13,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
   lineItems: Observable<{lineItems: LineItem[]}>;
 
   constructor(
-    private store: Store<{ shoppingCart: { lineItems: LineItem[] } }>,
+    private store: Store<fromShoppingCart.AppState>,
   ) {
   }
 
