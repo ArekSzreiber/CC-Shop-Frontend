@@ -29,13 +29,15 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3"><span class="plus-span disable-select"
-                                    (click)="incrementQuantity(lineItem)"><a>+</a></span>
+        <div class="col-md-3">
+          <span class="plus-span disable-select"
+                (click)="incrementQuantity(lineItem)"><a>+</a></span>
           <input type="text"
                  class="form-control"
                  value="{{lineItem.quantity}}"
                  [(ngModel)]="lineItem.quantity">
-          <span class="minus-span disable-select">-</span></div>
+          <span class="minus-span disable-select"
+                (click)="decrementQuantity(lineItem)"><a>-</a></span></div>
       </div>
     </li>
     <li class="list-group-item d-flex align-items-center clearfix">

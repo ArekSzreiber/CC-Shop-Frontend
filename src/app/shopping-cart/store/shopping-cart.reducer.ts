@@ -129,6 +129,14 @@ export function shoppingCartReducer(
         totalPrice: getTotalPrice(updatedLineItems),
       };
 
+    case ShoppingCartActions.DELETE_LINE_ITEM:
+      // delete line item
+      console.log('case ShoppingCartActions.DELETE_LINE_ITEM: not implemented');
+      return {
+        ...state,
+      };
+
+
     default:
       sessionStorage.setItem("lineItems", JSON.stringify(state.lineItems));
       return state;

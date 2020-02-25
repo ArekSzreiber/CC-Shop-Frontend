@@ -40,4 +40,13 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     lineItem.quantity++;
     this.store.dispatch(new ShoppingCartActions.UpdateLineItem(lineItem));
   }
+
+  decrementQuantity(lineItem: LineItem) {
+    lineItem.quantity--;
+    if(lineItem.quantity > 0){
+      this.store.dispatch(new ShoppingCartActions.UpdateLineItem(lineItem));
+    }else{
+      this.store.dispatch(new ShoppingCartActions.DeleteLineItem(lineItem));
+    }
+  }
 }
