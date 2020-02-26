@@ -35,7 +35,9 @@
           <input type="text"
                  class="form-control"
                  value="{{lineItem.quantity}}"
-                 [(ngModel)]="lineItem.quantity">
+                 [(ngModel)]="lineItem.quantity"
+                 (keydown.enter)="updateLineItem(lineItem)"
+          >
           <span class="minus-span disable-select"
                 (click)="decrementQuantity(lineItem)"><a>-</a></span></div>
       </div>
