@@ -130,10 +130,20 @@ export function shoppingCartReducer(
       };
 
     case ShoppingCartActions.DELETE_LINE_ITEM:
-      // delete line item
-      console.log('case ShoppingCartActions.DELETE_LINE_ITEM: not implemented');
+      updatedLineItems = [...state.lineItems];
+      updatedLineItems.some((lineItem, index) => {
+        if (JSON.stringify(lineItem.product) == JSON.stringify(action.payload.product)) {
+          updatedLineItems.splice(index, 1);
+          return true; // to break iterating over updatedLineItems
+        }
+      });
       return {
         ...state,
+        lineItems: [
+          ...updatedLineItems,
+        ],
+        numberOfItems: getTotalQuantity(updatedLineItems),
+        totalPrice: getTotalPrice(updatedLineItems),
       };
 
 
