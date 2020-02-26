@@ -1,10 +1,16 @@
-<div class="list-group-item clearfix">
+<div class="list-group-item clearfix product-item">
   <div class="col-xs-3">
-    <img
+    <img *ngIf="product.imageURL"
       src="{{product.imageURL}}"
-      alt="Product image"
+      alt="Link to image is broken"
       class="img-responsive"
       style="max-height: 120px;"
+    >
+    <img *ngIf="!product.imageURL"
+         src="../../../../assets/no-image.png"
+         alt="No image"
+         class="img-responsive"
+         style="max-height: 120px;"
     >
   </div>
   <div class="col-xs-4">
@@ -15,7 +21,8 @@
     </div>
   </div>
   <div class="col-xs-5">
-    <p class="list-group-item-text">{{product.description}}</p>
+    <p *ngIf="product.description" class="list-group-item-text">{{product.description}}</p>
+    <p *ngIf="!product.description" class="list-group-item-text missing">Missing description</p>
   </div>
 </div>
 

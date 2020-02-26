@@ -19,6 +19,7 @@ export class ProductItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.product.imageURL);
   }
   addToShoppingCart() {
     const lineItem = new LineItem(this.product);

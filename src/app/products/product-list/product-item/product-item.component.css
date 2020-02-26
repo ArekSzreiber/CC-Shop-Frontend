@@ -1,0 +1,9 @@
+.product-item {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+.missing {
+  font-style: italic;
+  color: gray;
+}
