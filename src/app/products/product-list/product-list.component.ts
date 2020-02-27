@@ -24,13 +24,13 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productList = this.productsService.getProducts();
     this.subscription = this.productsService.productsChanged.subscribe(
-      (products: Product[])=>{
+      (products: Product[]) => {
         this.productList = products;
       }
     );
-    if(+this.route.snapshot.params.id){
+    if (+this.route.snapshot.params.id) {
       this.dataStorageService.fetchProductsByCategoryId(+this.route.snapshot.params.id);
-    }else{
+    } else {
       this.dataStorageService.fetchAllProducts();
     }
   }

@@ -10,6 +10,7 @@ import {SuppliersService} from "../suppliers/suppliers.service";
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
 
+  private backendUrl = 'http://localhost:8888';
 
   constructor(
     private http: HttpClient,
@@ -36,40 +37,38 @@ export class DataStorageService {
       });
   }
 
-  fetchProductsByCategoryId(categoryId: number) {
-    const url = `http://localhost:8888/categories/${categoryId}/products`;
-    this.http
-      .get<Product[]>(url).subscribe(response => {
-      this.productsService.setProducts(response);
-    })
+  fetchAllProducts() {
+    const url = this.backendUrl + '/products';
+    this.getProducts(url);
   }
 
-  fetchAllProducts(){
-    const url = 'http://localhost:8888/products';
+  fetchProductsByCategoryId(categoryId: number) {
+    const url = `${this.backendUrl}/categories/${categoryId}/products`;
+    this.getProducts(url);
+  }
+
+  fetchProductsBySupplierId(supplierId: number) {
+    const url = `${this.backendUrl}/suppliers/${supplierId}/products`;
+    this.getProducts(url);
+  }
+
+  private getProducts(url: string){
     this.http
       .get<Product[]>(url).subscribe(response => {
       this.productsService.setProducts(response);
-    })
+    });
   }
 
   fetchCategories() {
-    const url = 'http://localhost:8888/categories';
+    const url = this.backendUrl + '/categories';
     this.http
       .get<Category[]>(url).subscribe(response => {
       this.categoryService.setCategories(response);
     })
   }
 
-  fetchProductsBySupplierId(supplierId: number) {
-    const url = `http://localhost:8888/suppliers/${supplierId}/products`;
-    this.http
-      .get<Product[]>(url).subscribe(response => {
-      this.productsService.setProducts(response);
-    })
-  }
-
   fetchSuppliers() {
-    const url = 'http://localhost:8888/suppliers';
+    const url = this.backendUrl + '/suppliers';
     this.http
       .get<Supplier[]>(url).subscribe(response => {
       this.suppliersService.setSuppliers(response);
