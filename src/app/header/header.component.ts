@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   itemsInCart: number;
 
   constructor(
-    private dataStorageService: DataStorageService,
     private store: Store<fromShoppingCart.AppState>,
   ) {
   }
@@ -34,11 +33,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  onSaveData() {
-    this.dataStorageService.storeProducts();
-  }
-
-  onFetchData() {
-    this.dataStorageService.fetchAllProducts();
-  }
 }
