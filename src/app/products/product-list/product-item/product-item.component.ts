@@ -14,15 +14,21 @@ import * as fromShoppingCart from '../../../shopping-cart/store/shopping-cart.re
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  @Input() quantity: number = 1;
+
   constructor(
     private store: Store<fromShoppingCart.AppState>,
   ) { }
 
   ngOnInit() {
-    console.log(this.product.imageURL);
   }
+
   addToShoppingCart() {
-    const lineItem = new LineItem(this.product);
+    if(this.quantity < 0){
+      this.quantity = 1;
+    }
+    const lineItem = new LineItem(this.product, this.quantity);
     this.store.dispatch(new ShoppingCartActions.AddProduct(lineItem));
+    this.quantity = 1;
   }
 }

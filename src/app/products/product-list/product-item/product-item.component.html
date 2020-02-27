@@ -17,6 +17,11 @@
     <h4 class="list-group-item-heading">{{product.title}}</h4>
     <div class="btn-group" role="group" aria-label="Basic example">
       <div class="btn btn-primary" style="cursor: default">{{product.price}} zł</div>
+      <input type="number"
+             [(ngModel)]="quantity"
+             class="col-lg-2 form-control amount-input"
+              min="1"
+      >
       <button type="button" class="btn btn-warning" (click)="addToShoppingCart()">Add to cart</button>
     </div>
   </div>
