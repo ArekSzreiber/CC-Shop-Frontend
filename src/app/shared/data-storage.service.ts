@@ -52,7 +52,7 @@ export class DataStorageService {
     this.getProducts(url);
   }
 
-  private getProducts(url: string){
+  private getProducts(url: string) {
     this.http
       .get<Product[]>(url).subscribe(response => {
       this.productsService.setProducts(response);

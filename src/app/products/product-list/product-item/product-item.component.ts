@@ -18,13 +18,14 @@ export class ProductItemComponent implements OnInit {
 
   constructor(
     private store: Store<fromShoppingCart.AppState>,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
 
   addToShoppingCart() {
-    if(this.quantity < 0){
+    if (this.quantity < 0) {
       this.quantity = 1;
     }
     const lineItem = new LineItem(this.product, this.quantity);

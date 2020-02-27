@@ -5,6 +5,7 @@ import {LineItem} from "../shared/line-item.model";
 
 import * as fromShoppingCart from './store/shopping-cart.reducer';
 import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
+import {faTrash} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,6 +14,7 @@ import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actio
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
 
+  faTrash = faTrash;
   stateSubscription: Subscription;
   totalPrice: number;
   lineItems: Observable<fromShoppingCart.ShoppingCartState>;
@@ -26,10 +28,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.lineItems = this.store.select('shoppingCart');
     this.stateSubscription = this.store.select('shoppingCart')
       .subscribe(
-      (stateData)=>{
-        this.totalPrice = stateData.totalPrice;
-      }
-    );
+        (stateData) => {
+          this.totalPrice = stateData.totalPrice;
+        }
+      );
   }
 
   ngOnDestroy(): void {
@@ -45,11 +47,17 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     lineItem.quantity--;
     this.updateLineItem(lineItem);
   }
+
   updateLineItem(lineItem: LineItem) {
-    if(lineItem.quantity > 0){
+    if (lineItem.quantity > 0) {
       this.store.dispatch(new ShoppingCartActions.UpdateLineItem(lineItem));
-    }else{
+    } else {
       this.store.dispatch(new ShoppingCartActions.DeleteLineItem(lineItem));
     }
+  }
+
+
+  deleteItem(lineItem: LineItem) {
+    this.store.dispatch(new ShoppingCartActions.DeleteLineItem(lineItem));
   }
 }

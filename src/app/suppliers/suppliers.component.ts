@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Supplier} from "../shared/supplier.model";
 import {Subscription} from "rxjs";
 import {DataStorageService} from "../shared/data-storage.service";
@@ -22,7 +22,7 @@ export class SuppliersComponent implements OnInit {
   ngOnInit() {
     this.suppliers = this.suppliersService.getSuppliers();
     this.subscription = this.suppliersService.suppliersChanged.subscribe(
-      (suppliers: Supplier[])=>{
+      (suppliers: Supplier[]) => {
         this.suppliers = suppliers;
       }
     );

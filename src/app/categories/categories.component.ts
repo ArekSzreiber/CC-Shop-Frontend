@@ -22,7 +22,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit() {
     this.categories = this.categoriesService.getCategories();
     this.subscription = this.categoriesService.categoriesChanged.subscribe(
-      (categories: Category[])=>{
+      (categories: Category[]) => {
         this.categories = categories;
       }
     );

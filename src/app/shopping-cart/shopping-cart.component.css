@@ -22,7 +22,7 @@
   height: 40px;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
 }
 
@@ -34,11 +34,20 @@ a:hover{
   -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
-.price-box{
+.price-box {
   font-size: 20px;
   vertical-align: bottom;
 }
 
-.line-item{
+.line-item {
   margin-top: 10px;
+}
+
+.quantity-input {
+  width: 80px;
+}
+
+.trash-icon {
+  margin-left: 20px;
+  font-size: large;
 }

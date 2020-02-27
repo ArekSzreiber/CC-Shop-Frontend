@@ -11,10 +11,10 @@
             </div>
             <div class="col-md-6">
               <img *ngIf="lineItem.product.imageURL"
-                src="{{lineItem.product.imageURL}}"
-                alt="Image link is broken"
-                class="img-responsive"
-                style="max-height: 120px;"
+                   src="{{lineItem.product.imageURL}}"
+                   alt="Image link is broken"
+                   class="img-responsive"
+                   style="max-height: 120px;"
               >
               <img *ngIf="!lineItem.product.imageURL"
                    src="../../assets/no-image.png"
@@ -36,16 +36,24 @@
           </div>
         </div>
         <div class="col-md-3">
-          <span class="plus-span disable-select"
-                (click)="incrementQuantity(lineItem)"><a>+</a></span>
-          <input type="text"
-                 class="form-control"
-                 value="{{lineItem.quantity}}"
-                 [(ngModel)]="lineItem.quantity"
-                 (keydown.enter)="updateLineItem(lineItem)"
-          >
-          <span class="minus-span disable-select"
-                (click)="decrementQuantity(lineItem)"><a>-</a></span></div>
+          <div class="plus-span disable-select"
+               (click)="incrementQuantity(lineItem)"><a>+</a>
+          </div>
+          <div style="clear: both;">
+            <input type="text"
+                   class="form-inline quantity-input"
+                   value="{{lineItem.quantity}}"
+                   [(ngModel)]="lineItem.quantity"
+                   (keydown.enter)="updateLineItem(lineItem)"
+            >
+            <span class="trash-icon" (click)="deleteItem(lineItem)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+            </span>
+          </div>
+          <div class="minus-span disable-select"
+               (click)="decrementQuantity(lineItem)"><a>-</a>
+          </div>
+        </div>
       </div>
     </li>
     <li class="list-group-item d-flex align-items-center clearfix">

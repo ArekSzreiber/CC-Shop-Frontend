@@ -1,10 +1,10 @@
 <div class="list-group-item clearfix product-item">
   <div class="col-xs-3">
     <img *ngIf="product.imageURL"
-      src="{{product.imageURL}}"
-      alt="Link to image is broken"
-      class="img-responsive"
-      style="max-height: 120px;"
+         src="{{product.imageURL}}"
+         alt="Link to image is broken"
+         class="img-responsive"
+         style="max-height: 120px;"
     >
     <img *ngIf="!product.imageURL"
          src="../../../../assets/no-image.png"
@@ -20,7 +20,7 @@
       <input type="number"
              [(ngModel)]="quantity"
              class="col-lg-2 form-control amount-input"
-              min="1"
+             min="1"
       >
       <button type="button" class="btn btn-warning" (click)="addToShoppingCart()">Add to cart</button>
     </div>

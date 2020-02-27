@@ -26,7 +26,6 @@ function getTotalPrice(lineItems: LineItem[]) {
 }
 
 
-
 const sampleLineItems = [ // left for testing
   new LineItem(
     new Product(
