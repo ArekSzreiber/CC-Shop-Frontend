@@ -11,5 +11,10 @@
 .amount-input {
   height: 35px;
   width: 70px;
-  margin: 0 10px 0 10px;
+  margin: 10px 10px 0 0;
+}
+
+.add-to-cart {
+  height: 35px;
+  margin: 10px 0 0 0;
 }
