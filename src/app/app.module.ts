@@ -9,7 +9,6 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ProductItemComponent} from './products/product-list/product-item/product-item.component';
 import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from '@ngrx/store';
@@ -19,7 +18,7 @@ import {SuppliersComponent} from './suppliers/suppliers.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: ProductListComponent},
   {path: 'categories/:id/products', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
@@ -34,7 +33,6 @@ const appRoutes: Routes = [
     ShoppingCartComponent,
     NavbarComponent,
     ProductItemComponent,
-    HomeComponent,
     CategoriesComponent,
     SuppliersComponent,
   ],
