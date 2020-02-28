@@ -16,7 +16,7 @@ It is a frontend part of a web shop application.
 ## Backend server
 Backend server repository can be found [here](https://github.com/ArekSzreiber/CC-Shop-Backend/tree/develop)
 
-### Screenshots
+## Screenshots
 
 ![](src/assets/screenshot1.png "Products viewed by supplier")
 ![](src/assets/screenshot2.png "Products in shopping cart")
