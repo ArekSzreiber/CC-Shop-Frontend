@@ -8,7 +8,7 @@ This project is being made by
  
  - [Karol Karpeta](https://github.com/KarolKarpeta) 
 
-It is frontend part of web shop application.
+It is a frontend part of a web shop application.
 
 ## Technologies
  - Angular 8
