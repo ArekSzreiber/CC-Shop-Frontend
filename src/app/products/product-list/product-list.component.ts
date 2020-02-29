@@ -3,6 +3,7 @@ import {Product} from "../../shared/product.model";
 import {ProductsService} from "../products.service";
 import {Subscription} from "rxjs";
 import {DataStorageService} from "../../shared/data-storage.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -16,17 +17,22 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private dataStorageService: DataStorageService,
+    private route: ActivatedRoute,
   ) {
   }
 
   ngOnInit() {
     this.productList = this.productsService.getProducts();
     this.subscription = this.productsService.productsChanged.subscribe(
-      (products: Product[])=>{
+      (products: Product[]) => {
         this.productList = products;
       }
     );
-    this.dataStorageService.fetchRecipes();
+    if (+this.route.snapshot.params.id) {
+      this.dataStorageService.fetchProductsByCategoryId(+this.route.snapshot.params.id);
+    } else {
+      this.dataStorageService.fetchAllProducts();
+    }
   }
 
 }

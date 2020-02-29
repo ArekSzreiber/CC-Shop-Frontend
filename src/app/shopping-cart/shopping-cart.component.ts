@@ -1,27 +1,63 @@
-import {Component, OnInit} from '@angular/core';
-import {Product} from "../shared/product.model";
-import {ProductsService} from "../products/products.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {LineItem} from "../shared/line-item.model";
+
+import * as fromShoppingCart from './store/shopping-cart.reducer';
+import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
+import {faTrash} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
 
-  products: Observable<{products: Product[]}>;
+  faTrash = faTrash;
+  stateSubscription: Subscription;
+  totalPrice: number;
+  lineItems: Observable<fromShoppingCart.ShoppingCartState>;
 
   constructor(
-    private productsService: ProductsService,
-    private store: Store<{ shoppingCart: { products: Product[] } }>,
+    private store: Store<fromShoppingCart.AppState>,
   ) {
   }
 
   ngOnInit() {
-    this.products = this.store.select('shoppingCart');
-    // this.products = this.productsService.sampleProducts;
+    this.lineItems = this.store.select('shoppingCart');
+    this.stateSubscription = this.store.select('shoppingCart')
+      .subscribe(
+        (stateData) => {
+          this.totalPrice = stateData.totalPrice;
+        }
+      );
   }
 
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
+  }
+
+  incrementQuantity(lineItem: LineItem) {
+    lineItem.quantity++;
+    this.store.dispatch(new ShoppingCartActions.UpdateLineItem(lineItem));
+  }
+
+  decrementQuantity(lineItem: LineItem) {
+    lineItem.quantity--;
+    this.updateLineItem(lineItem);
+  }
+
+  updateLineItem(lineItem: LineItem) {
+    if (lineItem.quantity > 0) {
+      this.store.dispatch(new ShoppingCartActions.UpdateLineItem(lineItem));
+    } else {
+      this.store.dispatch(new ShoppingCartActions.DeleteLineItem(lineItem));
+    }
+  }
+
+
+  deleteItem(lineItem: LineItem) {
+    this.store.dispatch(new ShoppingCartActions.DeleteLineItem(lineItem));
+  }
 }

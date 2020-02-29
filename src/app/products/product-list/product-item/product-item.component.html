@@ -1,22 +1,37 @@
-<div class="list-group-item clearfix">
+<div class="list-group-item clearfix product-item">
   <div class="col-xs-3">
-    <img
-      [src]="product.imagePath"
-      alt="Product image"
-      class="img-responsive"
-      style="max-height: 60px;"
+    <img *ngIf="product.imageURL"
+         src="{{product.imageURL}}"
+         alt="Link to image is broken"
+         class="img-responsive"
+         style="max-height: 120px;"
+    >
+    <img *ngIf="!product.imageURL"
+         src="../../../../assets/no-image.png"
+         alt="No image"
+         class="img-responsive"
+         style="max-height: 120px;"
     >
   </div>
   <div class="col-xs-4">
     <h4 class="list-group-item-heading">{{product.title}}</h4>
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <div class="btn btn-primary" style="cursor: default">{{product.price}} zł</div>
-      <button type="button" class="btn btn-warning" (click)="addToShoppingCart()">Add to cart</button>
+    <div class="btn btn-primary" style="cursor: default">{{product.price}} zł</div>
+    <div>
+      <input type="number"
+             [(ngModel)]="quantity"
+             class="col-lg-2 form-control amount-input"
+             min="1"
+      >
+      <button type="button"
+              class="btn btn-warning add-to-cart"
+              (click)="addToShoppingCart()">
+        Add to cart
+      </button>
     </div>
   </div>
   <div class="col-xs-5">
-    <p class="list-group-item-text">{{product.description}}</p>
+    <p *ngIf="product.description" class="list-group-item-text">{{product.description}}</p>
+    <p *ngIf="!product.description" class="list-group-item-text missing">Missing description</p>
   </div>
-
 </div>
 
