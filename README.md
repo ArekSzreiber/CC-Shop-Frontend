@@ -12,6 +12,7 @@ It is a frontend part of a web shop application.
 
 ## Technologies
  - Angular 8
+ - NgRx
 
 ## Backend server
 Backend server repository can be found [here](https://github.com/ArekSzreiber/CC-Shop-Backend/tree/develop)
