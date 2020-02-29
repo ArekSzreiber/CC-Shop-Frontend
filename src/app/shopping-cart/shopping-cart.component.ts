@@ -6,7 +6,7 @@ import {LineItem} from "../shared/line-item.model";
 import * as fromShoppingCart from './store/shopping-cart.reducer';
 import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
-import {FormGroup} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,10 +16,12 @@ import {FormGroup} from "@angular/forms";
 export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   shoppingCartForm: FormGroup;
-  faTrash = faTrash;
+
   stateSubscription: Subscription;
   totalPrice: number;
-  lineItems: Observable<fromShoppingCart.ShoppingCartState>;
+  lineItems: LineItem[];
+
+  faTrash = faTrash;
 
   constructor(
     private store: Store<fromShoppingCart.AppState>,
@@ -27,11 +29,11 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.lineItems = this.store.select('shoppingCart');
     this.stateSubscription = this.store.select('shoppingCart')
       .subscribe(
         (stateData) => {
           this.totalPrice = stateData.totalPrice;
+          this.lineItems = stateData.lineItems;
         }
       );
   }

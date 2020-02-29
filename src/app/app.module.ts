@@ -9,7 +9,7 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ProductItemComponent} from './products/product-list/product-item/product-item.component';
 import {RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from '@ngrx/store';
 import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
@@ -41,6 +41,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.forRoot({shoppingCart: shoppingCartReducer}),
   ],
