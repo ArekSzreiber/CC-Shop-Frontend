@@ -6,6 +6,7 @@ import {LineItem} from "../shared/line-item.model";
 import * as fromShoppingCart from './store/shopping-cart.reducer';
 import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,6 +15,7 @@ import {faTrash} from "@fortawesome/free-solid-svg-icons";
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
 
+  shoppingCartForm: FormGroup;
   faTrash = faTrash;
   stateSubscription: Subscription;
   totalPrice: number;

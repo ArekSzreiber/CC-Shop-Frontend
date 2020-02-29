@@ -18,8 +18,4 @@ export class ProductsService {
     this.productsChanged.next(this.products.slice());
   }
 
-  addProduct(product: Product) {
-    this.products.push(product);
-    this.productsChanged.next(this.products.slice());
-  }
 }
