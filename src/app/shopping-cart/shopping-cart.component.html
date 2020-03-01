@@ -25,8 +25,8 @@
               <span class="text-center">
                 {{+lineItem.product.price}} zł
               </span>
-              </div>
-              <div class="col-md-3 price-box">
+            </div>
+            <div class="col-md-3 price-box">
               <span class="text-center">
                 {{lineItem.product.price * lineItem.quantity}} zł
               </span>
@@ -65,10 +65,11 @@
           </div>
         </div>
         <div class="col-md-3">
-          <button
-            class="btn btn-warning"
-            routerLink="/checkout"
-          >Checkout</button>
+          <button class="btn btn-warning"
+                  routerLink="/checkout"
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </li>
