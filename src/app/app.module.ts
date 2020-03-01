@@ -16,12 +16,14 @@ import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
 import {CategoriesComponent} from './categories/categories.component';
 import {SuppliersComponent} from './suppliers/suppliers.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
   {path: 'categories/:id/products', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
+  {path: 'checkout', component: CheckoutComponent},
 ];
 
 @NgModule({
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     ProductItemComponent,
     CategoriesComponent,
     SuppliersComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

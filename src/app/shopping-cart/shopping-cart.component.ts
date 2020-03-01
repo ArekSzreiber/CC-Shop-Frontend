@@ -1,12 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Store} from "@ngrx/store";
-import {Observable, Subscription} from "rxjs";
+import {faTrash} from "@fortawesome/free-solid-svg-icons";
 import {LineItem} from "../shared/line-item.model";
+import {Store} from "@ngrx/store";
+import {Subscription} from "rxjs";
 
 import * as fromShoppingCart from './store/shopping-cart.reducer';
 import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
-import {faTrash} from "@fortawesome/free-solid-svg-icons";
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,8 +13,6 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
-
-  shoppingCartForm: FormGroup;
 
   stateSubscription: Subscription;
   totalPrice: number;
