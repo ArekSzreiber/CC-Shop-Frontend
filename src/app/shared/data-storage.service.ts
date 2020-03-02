@@ -6,6 +6,8 @@ import {CategoriesService} from "../categories/categories.service";
 import {Category} from "./category.model";
 import {Supplier} from "./supplier.model";
 import {SuppliersService} from "../suppliers/suppliers.service";
+import {Order} from "./order.model";
+import {PersonalData} from "./personal-data.model";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -36,13 +38,6 @@ export class DataStorageService {
     this.getProducts(url);
   }
 
-  private getProducts(url: string) {
-    this.http
-      .get<Product[]>(url).subscribe(response => {
-      this.productsService.setProducts(response);
-    });
-  }
-
   fetchCategories() {
     const url = this.backendUrl + '/categories';
     this.http
@@ -57,5 +52,23 @@ export class DataStorageService {
       .get<Supplier[]>(url).subscribe(response => {
       this.suppliersService.setSuppliers(response);
     })
+  }
+
+  sendOrder(order: Order) {
+    const url = this.backendUrl + '/orders';
+    this.http
+      .post(url, order).subscribe(response => {
+      console.log("Response:");
+      console.log(response);
+    })
+  }
+
+
+
+  private getProducts(url: string) {
+    this.http
+      .get<Product[]>(url).subscribe(response => {
+      this.productsService.setProducts(response);
+    });
   }
 }
