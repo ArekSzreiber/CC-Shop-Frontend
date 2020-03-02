@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {Order} from "./order.model";
 
 @Component({
   selector: 'app-checkout',
@@ -32,9 +33,27 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    //todo może jednak zrobić to reaktywnie
-    //todo zrób ten sprypt do generowania 10kk ludzi
-    console.log(form.value);
-    console.log(form);
+    const value = form.value;
+    if(value.addressesAreTheSame){
+      value.shippingAddress = value.billingAddress;
+      value.shippingCity = value.billingCity;
+      value.shippingCountry = value.billingCountry;
+      value.shippingZipCode = value.billingZipCode;
+    }
+    const order = new Order(
+      value.firstName,
+      value.lastName,
+      value.emailAddress,
+      value.phoneNumber,
+      value.billingCountry,
+      value.billingCity,
+      value.billingZipCode,
+      value.billingAddress,
+      value.shippingCountry,
+      value.shippingCity,
+      value.shippingZipCode,
+      value.shippingAddress,
+    );
+    console.log(order);
   }
 }
