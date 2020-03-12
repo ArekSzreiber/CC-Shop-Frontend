@@ -16,7 +16,7 @@ import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
 import {CategoriesComponent} from './categories/categories.component';
 import {SuppliersComponent} from './suppliers/suppliers.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import { CheckoutComponent } from './checkout/checkout.component';
+import {CheckoutComponent} from './checkout/checkout.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},

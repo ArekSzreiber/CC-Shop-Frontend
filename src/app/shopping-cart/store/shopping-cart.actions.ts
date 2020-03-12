@@ -1,5 +1,5 @@
 import {Action} from "@ngrx/store";
-import {LineItem} from "../../shared/line-item.model";
+import {LineItem} from "../../shared/models/line-item.model";
 
 export const ADD_PRODUCT = '[Shopping Cart] Add Ingredient';
 export const UPDATE_LINE_ITEM = '[Shopping Cart] Update Line Item';

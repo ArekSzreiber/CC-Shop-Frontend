@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs";
-import {Supplier} from "../shared/supplier.model";
+import {Supplier} from "../shared/models/supplier.model";
 
 @Injectable({providedIn: 'root'})
 export class SuppliersService {

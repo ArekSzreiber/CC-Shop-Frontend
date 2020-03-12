@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from "../../../shared/product.model";
+import {Product} from "../../../shared/models/product.model";
 import {Store} from "@ngrx/store";
-import {LineItem} from "../../../shared/line-item.model";
+import {LineItem} from "../../../shared/models/line-item.model";
 
 import * as ShoppingCartActions from "../../../shopping-cart/store/shopping-cart.actions";
 import * as fromShoppingCart from '../../../shopping-cart/store/shopping-cart.reducer';

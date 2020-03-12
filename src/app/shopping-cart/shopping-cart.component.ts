@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
-import {LineItem} from "../shared/line-item.model";
+import {LineItem} from "../shared/models/line-item.model";
 import {Store} from "@ngrx/store";
 import {Subscription} from "rxjs";
 

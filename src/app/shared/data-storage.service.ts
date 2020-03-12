@@ -1,13 +1,12 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {ProductsService} from "../products/products.service";
-import {Product} from "./product.model";
+import {Product} from "./models/product.model";
 import {CategoriesService} from "../categories/categories.service";
-import {Category} from "./category.model";
-import {Supplier} from "./supplier.model";
+import {Category} from "./models/category.model";
+import {Supplier} from "./models/supplier.model";
 import {SuppliersService} from "../suppliers/suppliers.service";
-import {Order} from "./order.model";
-import {PersonalData} from "./personal-data.model";
+import {Order} from "./models/order.model";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -54,7 +53,7 @@ export class DataStorageService {
     })
   }
 
-  sendOrder(order: Order) {
+  saveOrder(order: Order) {
     const url = this.backendUrl + '/orders';
     this.http
       .post(url, order).subscribe(response => {
@@ -62,7 +61,6 @@ export class DataStorageService {
       console.log(response);
     })
   }
-
 
 
   private getProducts(url: string) {

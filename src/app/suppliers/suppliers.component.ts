@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Supplier} from "../shared/supplier.model";
+import {Supplier} from "../shared/models/supplier.model";
 import {Subscription} from "rxjs";
 import {DataStorageService} from "../shared/data-storage.service";
 import {SuppliersService} from "./suppliers.service";

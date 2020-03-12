@@ -1,13 +1,12 @@
-input.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 
-input.ng-invalid{
+input.ng-invalid {
   border: 1px solid blue;
 }
 
-input[type=checkbox]
-{
+input[type=checkbox] {
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */
   -moz-transform: scale(2); /* FF */
