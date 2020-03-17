@@ -12,16 +12,18 @@ It is a frontend part of a [web shop application](https://github.com/ArekSzreibe
 
 todo: why this project exists, the motivation
 // well, for me it is important to practice Angular, Spring and Postgres. I want to make this feature to filter by parameters and to navigate to categories which has the same properties, like navigate from wheels to tyres, because of the diameter parameter
-todo: installation instruction
 
 ## Technologies
  - Angular 8
  - NgRx
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+## Installation
+1. Install [Node.js](https://nodejs.org/en/)
+2. Install Angular CLI `npm install -g @angular/cli`
+3. Clone the repo
+4. Navigate to the workspace folder
+5. Run `ng serve` for a dev server
+6. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
