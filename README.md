@@ -9,7 +9,7 @@ and currently is being made by
  - [Karol Karpeta](https://github.com/KarolKarpeta) 
 
 It is a frontend part of a [web shop application](https://github.com/ArekSzreiber/CC-Shop-Backend/tree/develop).
-
+This project is meant to replace // ten projekt jest zamiast Thymeleafa
 todo: why this project exists, the motivation
 // well, for me it is important to practice Angular, Spring and Postgres. I want to make this feature to filter by parameters and to navigate to categories which has the same properties, like navigate from wheels to tyres, because of the diameter parameter
 
