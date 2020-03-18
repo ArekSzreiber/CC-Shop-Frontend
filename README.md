@@ -9,9 +9,12 @@ and currently is being made by
  - [Karol Karpeta](https://github.com/KarolKarpeta) 
 
 It is a frontend part of a [web shop application](https://github.com/ArekSzreiber/CC-Shop-Backend/tree/develop).
-This project is meant to replace // ten projekt jest zamiast Thymeleafa
-todo: why this project exists, the motivation
-// well, for me it is important to practice Angular, Spring and Postgres. I want to make this feature to filter by parameters and to navigate to categories which has the same properties, like navigate from wheels to tyres, because of the diameter parameter
+
+## Why this project exists
+* to replace Thymeleaf with Angular in our Shop project
+* developing an app in Angular is easier as it is a more powerful tool than Thymeleaf
+* to provide better UX
+* to learn modern JavaScript (TypeScript) framework
 
 ## Technologies
  - Angular 8
@@ -27,8 +30,6 @@ todo: why this project exists, the motivation
 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-
 
 ## Further help
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
