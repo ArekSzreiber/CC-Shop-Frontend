@@ -19,26 +19,20 @@ todo: why this project exists, the motivation
 
 ## Installation
 1. Install [Node.js](https://nodejs.org/en/)
-2. Install Angular CLI `npm install -g @angular/cli`
-3. Clone the repo
-4. Navigate to the workspace folder
-5. Run `ng serve` for a dev server
-6. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install Angular CLI `npm install -g @angular/cli`
+1. Clone the repo
+1. Navigate to the workspace folder
+1. Run `ng serve` for a dev server
+1. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 
 
 ## Further help
-
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-
-
 ## Screenshots
-
 ![](src/assets/screenshot1.png "Products viewed by supplier")
 ![](src/assets/screenshot2.png "Products in shopping cart")
