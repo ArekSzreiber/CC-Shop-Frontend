@@ -21,7 +21,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   @ViewChild('form', {static: false}) checkoutForm: NgForm;
 
   telephonePattern: RegExp;
-  telephonePatternTestCases;
   lineItems: LineItem[];
   stateSubscription: Subscription;
 
@@ -33,18 +32,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.telephonePattern = /^[0-9]{9}$/;
-    this.telephonePatternTestCases = [
-      {pattern: 'pattern', result: false},
-      {pattern: '123123123', result: true},
-      {pattern: '1231231234', result: false},
-      {pattern: '555666777', result: true},
-    ];
-    for (let testCase of this.telephonePatternTestCases) {
-      if (this.telephonePattern.test(testCase.pattern) != testCase.result) {
-        console.log(testCase.pattern + ' ' + testCase.result);
-      }
-    }
-
   }
 
   onSubmit(form: NgForm) {
