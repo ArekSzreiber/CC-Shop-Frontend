@@ -1,6 +1,5 @@
 import * as ShoppingCartActions from './shopping-cart.actions';
-import {LineItem} from "../../shared/line-item.model";
-import {Product} from "../../shared/product.model";
+import {LineItem} from "../../shared/models/line-item.model";
 
 let sessionLineItems: LineItem[] = JSON.parse(sessionStorage.getItem("lineItems"));
 if (!sessionLineItems) {
@@ -24,7 +23,6 @@ function getTotalPrice(lineItems: LineItem[]) {
     return sum + current;
   }, 0);
 }
-
 
 
 export interface AppState {

@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {ProductsService} from "../products/products.service";
-import {Product} from "./product.model";
+import {Product} from "./models/product.model";
 import {CategoriesService} from "../categories/categories.service";
-import {Category} from "./category.model";
-import {Supplier} from "./supplier.model";
+import {Category} from "./models/category.model";
+import {Supplier} from "./models/supplier.model";
 import {SuppliersService} from "../suppliers/suppliers.service";
+import {Order} from "./models/order.model";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -36,13 +37,6 @@ export class DataStorageService {
     this.getProducts(url);
   }
 
-  private getProducts(url: string) {
-    this.http
-      .get<Product[]>(url).subscribe(response => {
-      this.productsService.setProducts(response);
-    });
-  }
-
   fetchCategories() {
     const url = this.backendUrl + '/categories';
     this.http
@@ -57,5 +51,22 @@ export class DataStorageService {
       .get<Supplier[]>(url).subscribe(response => {
       this.suppliersService.setSuppliers(response);
     })
+  }
+
+  saveOrder(order: Order) {
+    const url = this.backendUrl + '/orders';
+    this.http
+      .post(url, order).subscribe(response => {
+      console.log("Response:");
+      console.log(response);
+    })
+  }
+
+
+  private getProducts(url: string) {
+    this.http
+      .get<Product[]>(url).subscribe(response => {
+      this.productsService.setProducts(response);
+    });
   }
 }

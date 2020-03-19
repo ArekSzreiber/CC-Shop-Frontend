@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DataStorageService} from "../shared/data-storage.service";
 import {Store} from "@ngrx/store";
 
 import * as fromShoppingCart from '../shopping-cart/store/shopping-cart.reducer';

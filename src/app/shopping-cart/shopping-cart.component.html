@@ -1,7 +1,7 @@
 <div class="col-xs-12">
   <ul class="list-group">
     <li class="list-group-item d-flex align-items-center clearfix line-item"
-        *ngFor="let lineItem of (lineItems | async).lineItems;"
+        *ngFor="let lineItem of lineItems;"
     >
       <div class="row">
         <div class="col-md-9">
@@ -13,14 +13,12 @@
               <img *ngIf="lineItem.product.imageURL"
                    src="{{lineItem.product.imageURL}}"
                    alt="Image link is broken"
-                   class="img-responsive"
-                   style="max-height: 120px;"
+                   class="img-responsive line-item-image"
               >
               <img *ngIf="!lineItem.product.imageURL"
                    src="../../assets/no-image.png"
                    alt="No image"
-                   class="img-responsive"
-                   style="max-height: 120px;"
+                   class="img-responsive line-item-image"
               >
             </div>
             <div class="col-md-3 price-box">
@@ -58,7 +56,6 @@
     </li>
     <li class="list-group-item d-flex align-items-center clearfix">
       <div class="row">
-
         <div class="col-md-9 price-box">
           <div class="col-md-9 text-right">
             Total price:
@@ -66,6 +63,13 @@
           <div class="col-md-3">
             {{totalPrice}} zł
           </div>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-warning"
+                  routerLink="/checkout"
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </li>

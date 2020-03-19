@@ -1,13 +1,21 @@
-.plus-span {
-  float: left;
-  background-color: #DCDCDC;
-  padding: 3px 12px;
-  border-radius: 20px;
-  margin-bottom: 4px;
-  font-weight: bold;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
+a:hover {
+  text-decoration: none;
+}
+
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.line-item {
+  margin-top: 10px;
+}
+
+.line-item-image {
+  max-height: 120px;
 }
 
 .minus-span {
@@ -22,25 +30,21 @@
   height: 40px;
 }
 
-a:hover {
-  text-decoration: none;
-}
-
-.disable-select {
-  user-select: none; /* supported by Chrome and Opera */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
+.plus-span {
+  float: left;
+  background-color: #DCDCDC;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
 }
 
 .price-box {
   font-size: 20px;
   vertical-align: bottom;
-}
-
-.line-item {
-  margin-top: 10px;
 }
 
 .quantity-input {

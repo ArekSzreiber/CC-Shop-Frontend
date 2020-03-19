@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Category} from "../shared/category.model";
+import {Category} from "../shared/models/category.model";
 import {DataStorageService} from "../shared/data-storage.service";
 import {Subscription} from "rxjs";
 import {CategoriesService} from "./categories.service";
