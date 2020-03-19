@@ -24,18 +24,14 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   telephonePatternTestCases;
   lineItems: LineItem[];
   stateSubscription: Subscription;
-  loading: boolean;
-
 
   constructor(
     private store: Store<fromShoppingCart.AppState>,
     private dataStorageService: DataStorageService,
-    private router: Router,
   ) {
   }
 
   ngOnInit() {
-    this.loading = false;
     this.telephonePattern = /^[0-9]{9}$/;
     this.telephonePatternTestCases = [
       {pattern: 'pattern', result: false},
@@ -87,7 +83,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     const order = new Order(personalData, billingAddress, shippingAddress, this.lineItems);
 
     this.dataStorageService.saveOrder(order);
-    // this.router.navigate(['/payment']); // todo navigate to payment
   }
 
   ngOnDestroy(): void {
