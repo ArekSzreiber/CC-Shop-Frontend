@@ -9,7 +9,6 @@ import {Subscription} from "rxjs";
 import * as fromShoppingCart from '../shopping-cart/store/shopping-cart.reducer';
 import {DataStorageService} from "../shared/data-storage.service";
 import {LineItem} from "../shared/models/line-item.model";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-checkout',
