@@ -16,9 +16,4 @@ export class CategoriesService {
     this.categories = categories;
     this.categoriesChanged.next(this.categories.slice());
   }
-
-  addCategory(category: Category) {
-    this.categories.push(category);
-    this.categoriesChanged.next(this.categories.slice());
-  }
 }

@@ -6,6 +6,7 @@ import {Subscription} from "rxjs";
 
 import * as fromShoppingCart from './store/shopping-cart.reducer';
 import * as ShoppingCartActions from "../shopping-cart/store/shopping-cart.actions";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -22,6 +23,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<fromShoppingCart.AppState>,
+    private router: Router,
   ) {
   }
 
@@ -60,5 +62,11 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   deleteItem(lineItem: LineItem) {
     this.store.dispatch(new ShoppingCartActions.DeleteLineItem(lineItem));
+  }
+
+  checkout() {
+    if(this.lineItems.length > 0){
+      this.router.navigate(['/checkout']);
+    }
   }
 }
