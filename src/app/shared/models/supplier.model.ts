@@ -1,6 +1,6 @@
 export class Supplier {
   constructor(
-    public id: number,
+    public supplierId: number,
     public name: string,
   ) {
   }

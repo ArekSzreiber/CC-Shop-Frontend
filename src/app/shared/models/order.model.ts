@@ -9,7 +9,7 @@ export class Order {
     public billingAddress: Address,
     public shippingAddress: Address,
     public lineItems: LineItem[],
-    public id: number = null,
+    public orderId: number = null,
   ) {
   }
 }
