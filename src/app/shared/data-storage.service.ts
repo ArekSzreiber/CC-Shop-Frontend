@@ -7,6 +7,7 @@ import {Category} from "./models/category.model";
 import {Supplier} from "./models/supplier.model";
 import {SuppliersService} from "../suppliers/suppliers.service";
 import {Order} from "./models/order.model";
+import {logger} from "codelyzer/util/logger";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {

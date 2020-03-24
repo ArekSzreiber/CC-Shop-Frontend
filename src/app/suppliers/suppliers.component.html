@@ -1,8 +1,8 @@
 <ul class="nav flex-column">
   <li class="nav-item" *ngFor="let supplier of suppliers;">
     <a class="nav-link"
-       routerLink="/categories/{{supplier.id}}/products"
-       (click)="onLoadProducts(supplier.id)"
+       routerLink="/categories/{{supplier.supplierId}}/products"
+       (click)="onLoadProducts(supplier.supplierId)"
     >{{supplier.name}}
     </a>
   </li>
