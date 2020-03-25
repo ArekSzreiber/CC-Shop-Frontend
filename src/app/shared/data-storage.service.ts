@@ -60,9 +60,8 @@ export class DataStorageService {
       .post(url, order).subscribe(response => {
       console.log("Response:");
       console.log(response);
-    })
+    });
   }
-
 
   private getProducts(url: string) {
     this.http

@@ -15,8 +15,9 @@ import {StoreModule} from '@ngrx/store';
 import {shoppingCartReducer} from "./shopping-cart/store/shopping-cart.reducer";
 import {CategoriesComponent} from './categories/categories.component';
 import {SuppliersComponent} from './suppliers/suppliers.component';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {CheckoutComponent} from './checkout/checkout.component';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   {path: 'products', component: ProductListComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'checkout', component: CheckoutComponent},
+  {path: 'auth', component: AuthComponent}
 ];
 
 @NgModule({
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
     CategoriesComponent,
     SuppliersComponent,
     CheckoutComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
