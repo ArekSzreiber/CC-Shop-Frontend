@@ -32,6 +32,9 @@
   <div class="col-xs-5">
     <p *ngIf="product.description" class="list-group-item-text">{{product.description}}</p>
     <p *ngIf="!product.description" class="list-group-item-text missing">Missing description</p>
+    <ol>
+      <li *ngFor="let parameter of product.parameters;">{{parameter['type']}} {{parameter['value']}}</li>
+    </ol>
   </div>
 </div>
 

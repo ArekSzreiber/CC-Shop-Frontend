@@ -1,4 +1,4 @@
-import {Parameter} from "./property.model";
+import {Parameter} from "./parameter.model";
 
 export class Product {
   constructor(
