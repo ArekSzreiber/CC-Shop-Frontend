@@ -1,4 +1,4 @@
-export class Property{
+export class Parameter{
   constructor(
     type: string,
     value: string,

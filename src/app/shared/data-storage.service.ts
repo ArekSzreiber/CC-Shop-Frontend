@@ -68,6 +68,7 @@ export class DataStorageService {
     this.http
       .get<Product[]>(url).subscribe(response => {
       this.productsService.setProducts(response);
+      console.log(response);
     });
   }
 }

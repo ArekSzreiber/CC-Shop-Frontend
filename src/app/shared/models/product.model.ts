@@ -1,4 +1,4 @@
-import {Property} from "./property.model";
+import {Parameter} from "./property.model";
 
 export class Product {
   constructor(
@@ -7,7 +7,7 @@ export class Product {
     public description: string,
     public imageURL: string,
     public price: number,
-    public properties: Property[],
+    public parameters: Parameter[],
   ) {
   }
 }
