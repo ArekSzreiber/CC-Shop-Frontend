@@ -1,3 +1,5 @@
+import {Property} from "./property.model";
+
 export class Product {
   constructor(
     public productId: number,
@@ -5,6 +7,7 @@ export class Product {
     public description: string,
     public imageURL: string,
     public price: number,
+    public properties: Property[],
   ) {
   }
 }
