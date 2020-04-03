@@ -4,6 +4,7 @@ import {ProductsService} from "../products.service";
 import {Subscription} from "rxjs";
 import {DataStorageService} from "../../shared/data-storage.service";
 import {ActivatedRoute} from "@angular/router";
+import {Parameter} from "../../shared/models/parameter.model";
 
 @Component({
   selector: 'app-product-list',
@@ -13,6 +14,7 @@ import {ActivatedRoute} from "@angular/router";
 export class ProductListComponent implements OnInit {
   productList: Product[];
   subscription: Subscription;
+  filters: Parameter[];// ale najpierw trzeba zrobić jakiś products reducer
 
   constructor(
     private productsService: ProductsService,

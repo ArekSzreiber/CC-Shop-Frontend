@@ -29,6 +29,8 @@ export class DataStorageService {
   }
 
   fetchProductsByCategoryId(categoryId: number) {
+    console.log("if there is one category");
+    console.log("fetch all parameter types of that category");
     const url = `${this.backendUrl}/categories/${categoryId}/products`;
     this.getProducts(url);
   }
@@ -68,7 +70,6 @@ export class DataStorageService {
     this.http
       .get<Product[]>(url).subscribe(response => {
       this.productsService.setProducts(response);
-      console.log(response);
     });
   }
 }
